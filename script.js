@@ -10,7 +10,7 @@ let currentPlayer = tick_nought;
 
 boxes.forEach((box, i) => {
     box.addEventListener('click', (e) => {
-        const id = e.target.value;
+        const id = e.target.id;
         if(!spaces[id]){
             spaces[id] = currentPlayer;
             box.innerHTML = currentPlayer;
@@ -18,7 +18,11 @@ boxes.forEach((box, i) => {
 
         if(playerWon()){
             heading.innerHTML = `Player ${currentPlayer} has won this round.`
-
+            restart();
+            return;
+        }
+        if(playerDraw()){
+            return
         }
 
         currentPlayer = currentPlayer === tick_nought ? tick_cross : tick_nought;
@@ -69,10 +73,34 @@ const playerWon = () => {
 }
 
 const playerDraw = () => {
+    let draw = 0;
+    spaces.forEach((space, i) => {
+        if(space[i] !== null){
+            draw++;
+        }
+        if(draw === 9){
+            heading.innerHTML = `This round was a draw.`;
+            strategy.innerHTML = `Draw`;
+            restart();
+        }
+    })
 
 }
 
 const restart = () => {
-
+    setTimeout(() => {
+        spaces.forEach((space, i) => {
+            space[i] === null
+        })
+        boxes.forEach((box) => {
+            box.innerHTML = '' 
+        })
+        heading.innerHTML = 'Play Again';
+        
+        setTimeout(() => {
+            heading.innerHTML = 'Play'
+        }, 2000);
+        strategy.innerHTML = '';
+    }, 1800);
 }
 
