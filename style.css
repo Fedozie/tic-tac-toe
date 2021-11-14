@@ -1,10 +1,10 @@
 :root{
-    --text: hsl(64, 82%, 83%);
-    --bg: hsl(252, 44%, 46%);
-    --btn-bg: hsl(72, 66%, 64%);
+    --text: hsl(42, 100%, 80%);
+    --bg: hsl(179, 100%, 24%);
+    --btn-bg: hsl(42, 100%, 80%);
 }
 
-*{
+*, *::before, *::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,6 +13,7 @@
 body{
     color: var(--text);
     background: var(--bg);
+    font-family: 'Raleway', sans-serif;
 }
 
 #heading{
@@ -34,7 +35,7 @@ body{
     width: 60vw;
     display: flex;
     flex-wrap: wrap;
-    font-size: 100px;
+    font-size: 6.25rem;
     margin-top: 1rem;
 }
 
