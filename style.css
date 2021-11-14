@@ -18,8 +18,13 @@ body{
 
 #heading{
     font-size: 80px;
-    margin-bottom: 0;
+    margin-bottom: 10px;
     font-size: 2.5rem;
+    text-align: center;
+}
+
+#strategy{
+    text-align: center;
 }
 
 .container{
@@ -60,6 +65,11 @@ body{
     font-weight: bold;
     cursor: pointer;
     margin-top: 2rem;
+}
+
+#restart:hover{
+    transform: translateY(-3px);
+    box-shadow: 1px 8px 13px rgba(41, 41, 41, 0.658);
 }
 
 .zero, .one, .two{

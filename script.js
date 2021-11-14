@@ -5,7 +5,7 @@ const restartBtn = document.querySelector('#restart');
 
 const spaces = [];
 const tick_cross = 'X';
-const tick_nought = 'O'
+const tick_nought = 'O';
 let currentPlayer = tick_nought;
 
 boxes.forEach((box, i) => {
@@ -17,14 +17,14 @@ boxes.forEach((box, i) => {
         }
 
         if(playerWon()){
-            heading.innerHTML = `Player ${currentPlayer} has won this round.`
+            heading.innerHTML = `Player ${currentPlayer} has won this round.`;
             restart();
-            console.log(spaces)
+            console.log(spaces);
             return;
         }
 
         if(playerDraw()){
-            return
+            return;
         }
 
         currentPlayer = currentPlayer === tick_nought ? tick_cross : tick_nought;
@@ -34,41 +34,41 @@ boxes.forEach((box, i) => {
 const playerWon = () => {
     if(spaces[0] === currentPlayer){
         if(spaces[1] === currentPlayer && spaces[2] === currentPlayer){
-            strategy.innerHTML = `${currentPlayer} has won on the top row. 😄`
+            strategy.innerHTML = `${currentPlayer} has won on the top row. 😄`;
             return true;
         }
         if(spaces[4] === currentPlayer && spaces[8] === currentPlayer){
-            strategy.innerHTML = `${currentPlayer} has won along the diagonal. 😄`
+            strategy.innerHTML = `${currentPlayer} has won along the diagonal. 😄`;
             return true;
         }
         if(spaces[3] === currentPlayer && spaces[6] === currentPlayer){
-            strategy.innerHTML = `${currentPlayer} has won the left column. 😄`
+            strategy.innerHTML = `${currentPlayer} has won the left column. 😄`;
             return true;
         }
     }
 
     if(spaces[4] === currentPlayer){
         if(spaces[1] === currentPlayer && spaces[7] === currentPlayer){
-            strategy.innerHTML = `${currentPlayer} has won on the middle column. 😄`
+            strategy.innerHTML = `${currentPlayer} has won on the middle column. 😄`;
             return true;
         }
         if(spaces[2] === currentPlayer && spaces[6] === currentPlayer){
-            strategy.innerHTML = `${currentPlayer} has won along the diagonal. 😄`
+            strategy.innerHTML = `${currentPlayer} has won along the diagonal. 😄`;
             return true;
         }
         if(spaces[3] === currentPlayer && spaces[5] === currentPlayer){
-            strategy.innerHTML = `${currentPlayer} has won on the middle row. 😄`
+            strategy.innerHTML = `${currentPlayer} has won on the middle row. 😄`;
             return true;
         }
     }
 
     if(spaces[8] === currentPlayer){
         if(spaces[2] === currentPlayer && spaces[5] === currentPlayer){
-            strategy.innerHTML = `${currentPlayer} has won on the right column. 😄`
+            strategy.innerHTML = `${currentPlayer} has won on the right column. 😄`;
             return true;
         }
         if(spaces[6] === currentPlayer && spaces[7] === currentPlayer){
-            strategy.innerHTML = `${currentPlayer} has won on the bottom row. 😄`
+            strategy.innerHTML = `${currentPlayer} has won on the bottom row. 😄`;
             return true;
         }
     }
@@ -91,7 +91,7 @@ const playerDraw = () => {
 const restart = () => {
     if(typeof spaces !== 'undefined' && spaces !== null && spaces.length !== null && spaces.length > 0){
         setTimeout(() => {
-            heading.innerHTML = 'Play Again';
+            heading.innerHTML = 'Play Again...';
             setTimeout(() => {
                 spaces.forEach((space, i) => {
                     spaces[i] = null;
