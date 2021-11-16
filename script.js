@@ -8,6 +8,9 @@ const tick_cross = 'X';
 const tick_nought = 'O';
 let currentPlayer = tick_nought;
 
+let winSfx = new Audio('./Sfx/winning-sfx.mp3');
+let drawSfx = new Audio('./Sfx/draw-sfx.mp3');
+
 boxes.forEach((box, i) => {
     box.addEventListener('click', (e) => {
         const id = e.target.id;
@@ -19,7 +22,7 @@ boxes.forEach((box, i) => {
         if(playerWon()){
             heading.innerHTML = `Player ${currentPlayer} has won this round.`;
             restart();
-            console.log(spaces);
+            winSfx.play();
             return;
         }
 
@@ -84,6 +87,7 @@ const playerDraw = () => {
             heading.innerHTML = `This round was a draw.`;
             strategy.innerHTML = `Draw 🤔`;
             restart();
+            drawSfx.play()
         }
     })
 }
